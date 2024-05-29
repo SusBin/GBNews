@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest GB News</title>
+    <link rel="stylesheet" href="style.css">    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Latest <span>British</span> News</h1>
+        <p class="subtitle">Stay updated with the latest news from Great Britain</p>
+    </header>
+    <div>
+        <div class="category-btns">
+            <button id="latest-btn" class="active">Latest</button>
+            <button id="tech-btn">Technology</button>
+            <button id="science-btn">Science</button>
+            <button id="world-btn">World</button>
+            <button id="health-btn">Health</button>            
+        </div>        
+    </div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-btn"><i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div id="news-container"></div>
+    <script src="app.js"></script>
+</body>
+</html>

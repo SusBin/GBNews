@@ -120,5 +120,14 @@ h1 span {
 }
 
 @media (max-width: 768px) {
-    
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}  
+category-btns button {
+    font-weight: 600;
+    margin-right: 5px;
+    padding: 10px 20px;
+}
 }

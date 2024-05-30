@@ -121,7 +121,7 @@ h1 span {
 
 @media (max-width: 768px) {
 #search-input {
-    width: 50%;
+    width: 35%;
 }
 category-btns button {
     margin-right: 5px;

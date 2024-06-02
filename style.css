@@ -57,34 +57,39 @@ h1 span {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    padding: 10px;
+    width: 100%; /* Ensure container takes full width */
+    box-sizing: border-box;
 }
 
 #search-input {
-    padding: 10px; 
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-right: 10px;
-    width: 25%;
-    margin-bottom: 10px;
+    border-radius: 5px 0 0 5px; /* Rounded corners on the left side */
+    width: 70%; /* Adjust as needed */
+    box-sizing: border-box;
+    border-right: none; /* Remove right border to merge with button */
+    height: 40px; /* Set a consistent height */
 }
 
 #search-btn {
     background-color: #01233d;
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid #01233d; /* Match border with background color */
+    border-radius: 0 5px 5px 0; /* Rounded corners on the right side */
     cursor: pointer;
-    padding: 10px 20px; 
+    padding: 0 20px; /* Adjust padding to match height */
     font-size: inherit;
-    margin-bottom: 10px;
+    box-sizing: border-box;
+    height: 40px; /* Set a consistent height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 #search-btn:hover {
     background-color: #aeb3b8;
 }
-
-
 
 .source-icon {
     width: 80px; 
@@ -119,10 +124,20 @@ h1 span {
     font-size: 0.9em;
 }
 
-@media (max-width: 768px) {
-#search-input {
-    width: 35%;
-}
+@media (max-width: 600px) {
+    .search-container {
+        flex-direction: row; /* Ensure elements stay in a row */
+        justify-content: center;
+    }
+
+    #search-input {
+        width: calc(100% - 60px); /* Adjust width to allow button to fit */
+    }
+
+    #search-btn {
+        width: 60px; /* Width of the button */
+        padding: 0; /* Adjust padding for smaller button */
+    }
 category-btns button {
     margin-right: 5px;
     padding: 10px 20px;

@@ -128,7 +128,6 @@ h1 span {
     min-height: 50px; 
 }
 
-
 .news-item {
     position: relative;
     margin-bottom: 20px;
@@ -149,6 +148,13 @@ h1 span {
     color: #999;
     font-size: 0.9em;
 }
+.news-content {
+    flex: 1;
+    overflow: hidden; /* Add this line */
+    word-wrap: break-word; /* Add this line */
+}
+
+
 .menu-toggle.active i::before {
     content: '\f00d';
 }

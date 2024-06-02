@@ -121,13 +121,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Format date
+    // Format date and time
     function formatDate(dateString) {
         const date = new Date(dateString);
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = String(date.getFullYear()).slice(-2);
-        return `${day}/${month}/${year}`;
+        const options = {
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false // Ensure 24-hour format
+        };
+        return new Intl.DateTimeFormat('en-GB', options).format(date);
     }
+
+
 
 });

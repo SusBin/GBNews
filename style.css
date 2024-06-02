@@ -150,8 +150,8 @@ h1 span {
 }
 .news-content {
     flex: 1;
-    overflow: hidden; /* Add this line */
-    word-wrap: break-word; /* Add this line */
+    overflow: hidden; 
+    word-wrap: break-word;
 }
 
 

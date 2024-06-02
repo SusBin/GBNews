@@ -15,15 +15,16 @@
     <header>
         <h1>Latest <span>British</span> News</h1>
         <p class="subtitle">Stay updated with the latest news from Great Britain</p>
-    </header>
-    <div>
-        <div class="category-btns">
-            <button id="latest-btn" class="active">Latest</button>
-            <button id="tech-btn">Technology</button>
-            <button id="science-btn">Science</button>
-            <button id="world-btn">World</button>
-            <button id="health-btn">Health</button>            
-        </div>        
+    </header>    
+    <div class="nav-container">
+        <button class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></button>
+        <ul class="category-nav">
+            <li><a href="#" id="latest-link" class="active">Latest</a></li>
+            <li><a href="#" id="technology-link">Technology</a></li>
+            <li><a href="#" id="science-link">Science</a></li>
+            <li><a href="#" id="world-link">World</a></li>
+            <li><a href="#" id="health-link">Health</a></li>
+        </ul>
     </div>
     <div class="search-container">
         <input type="text" id="search-input" placeholder="Search...">

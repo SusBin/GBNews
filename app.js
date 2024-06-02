@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const newsContainer = document.getElementById('news-container');
-    const latestBtn = document.getElementById('latest-btn');
-    const techBtn = document.getElementById('tech-btn');
-    const scienceBtn = document.getElementById('science-btn');
-    const worldBtn = document.getElementById('world-btn');
-    const healthBtn = document.getElementById('health-btn');
+    const latestBtn = document.getElementById('latest-link');
+    const techBtn = document.getElementById('tech-link');
+    const scienceBtn = document.getElementById('science-link');
+    const worldBtn = document.getElementById('world-link');
+    const healthBtn = document.getElementById('health-link');
 
     
     const apiKey = 'pub_45181541590cf247c24fdaa5a26ca879fd502';
@@ -35,44 +35,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 newsContainer.innerHTML = '<p>Failed to load news data. Please try again later.</p>';
             });
     }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const categoryNav = document.querySelector('.category-nav');
 
-    // Event listeners for category buttons
-    latestBtn.addEventListener('click', function() {
-        category = null; // Reset category
-        fetchNews(category, null);
-        setActiveButton(latestBtn);
+    // Attach click event listener to menu toggle button
+    menuToggle.addEventListener('click', function() {
+        categoryNav.classList.toggle('show');
+        menuToggle.classList.toggle('active');
     });
 
-    techBtn.addEventListener('click', function() {
-        category = 'technology';
-        fetchNews(category, null);
-        setActiveButton(techBtn);
-    });
-
-    scienceBtn.addEventListener('click', function() {
-        category = 'science';
-        fetchNews(category, null);
-        setActiveButton(scienceBtn);
-    });
-
-    worldBtn.addEventListener('click', function() {
-        category = 'world';
-        fetchNews(category, null);
-        setActiveButton(worldBtn);
-    });
-
-    healthBtn.addEventListener('click', function() {
-        category = 'health';
-        fetchNews(category, null);
-        setActiveButton(healthBtn);
-    });
-
-    function setActiveButton(activeBtn) {
-        const buttons = document.querySelectorAll('.category-btns button');
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
+    const links = document.querySelectorAll('.category-nav a');
+    links.forEach(link => {
+        link.addEventListener('click', function(event) {
+            const clickedCategory = event.target.id.replace("-link", "");
+            category = clickedCategory === "latest" ? null : clickedCategory;
+            fetchNews(category, null);
+            setActiveLink(event.target);
+            categoryNav.classList.remove('show');
+            menuToggle.classList.remove('active');
         });
-        activeBtn.classList.add('active');
+    });
+
+    function setActiveLink(activeLink) {
+        const links = document.querySelectorAll('.category-nav a');
+        links.forEach(link => {
+            link.classList.remove('active');
+        });
+        activeLink.classList.add('active');
     }
 
     const searchBtn = document.getElementById('search-btn');
@@ -140,4 +129,5 @@ document.addEventListener('DOMContentLoaded', function() {
         const year = String(date.getFullYear()).slice(-2);
         return `${day}/${month}/${year}`;
     }
+
 });
